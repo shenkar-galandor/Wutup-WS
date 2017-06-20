@@ -1,0 +1,22 @@
+{
+    "_id": {
+        "$oid": "59469f85734d1d59b789650e"
+    },
+    "userId": 1,
+    "playlist": [
+        {
+            "songId":"xOWn8Dv9DR4",
+            "songTitle":"New Mixtape rap rnb hip hop 2016",
+            "songAuthor":"Flexman973 Waksauce",
+            "yearOfCreation":2006,
+            "image":"https://i.ytimg.com/vi/xOWn8Dv9DR4/mqdefault.jpg"
+        },
+          {
+            "songId":"6slRIyzdvpg",
+            "songTitle":"New Mixtape rap rnb hip hop 2015",
+            "songAuthor":"Or Adar",
+            "yearOfCreation":2006,
+            "image":"https://i.ytimg.com/vi/6slRIyzdvpg/mqdefault.jpg"
+        }
+    ]
+}
