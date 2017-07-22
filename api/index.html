@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wutup WS API</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+            <h1>WUTUP<span> API</span></h1>
+        <div class="row">
+            <div class="jumbotron textZone">
+                <h2>Welcome</h2>
+                <p>This is the WUTUP application API<br>
+                This application allows you to listen to hip hop mixtapes<br>
+                and manage your own playlist.<br>
+                This API if for developers how wish to get and set their own<br>
+                hip hop mixtapes and connect with Youtube API in order to get them<br>
+                    the main link for the WS is <code>https://wutupws.herokuapp.com/</code><br>
+                    and the function will be the text after the '/'<br>
+                Enjoy!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="jumbotron textZone">
+                <h2>The Search Method</h2>
+                <p>
+                    After the main link for the WS insert the following
+                    <code>/search</code><br>
+                    the Method is GET<br>
+                    this function will bring you all the songs in the WUTUP library from Youtube API<br>
+                    The result will be an array of JSON looks like that:<br>
+                    <code>
+                        {
+                        "id": "6slRIyzdvpg",<br>
+                        "link": "https://www.youtube.com/watch?v=6slRIyzdvpg",<br>
+                        "kind": "youtube#video",<br>
+                        "publishedAt": "2017-03-15T14:10:07.000Z",<br>
+                        "channelId": "UC7Qonm5ekLMJ1trsZKBY0nA",<br>
+                        "channelTitle": "DJ NiR Maimon",<br>
+                        "title": "New Hip Hop Rap Music Mix 2017 Rap Hip Hop Mix 2016 Hip Hop R&B Songs 2017 Mix 52",<br>
+                        "description": "Hip Hop Urban RnB 2016 Hip Hop Music 2017 , Best Songs Hip Hop RnB Mix 2016 - New Hip Hop RnB Songs 2017 | Top week of June Hip Hop Urban RnB ...",<br>
+                        "thumbnails": {<br>
+                        "default": {<br>
+                        "url": "https://i.ytimg.com/vi/6slRIyzdvpg/default.jpg",<br>
+                        "width": 120,<br>
+                        "height": 90
+                        },<br>
+                        "medium": {<br>
+                        "url": "https://i.ytimg.com/vi/6slRIyzdvpg/mqdefault.jpg",<br>
+                        "width": 320,<br>
+                        "height": 180
+                        },<br>
+                        "high": {
+                        "url": "https://i.ytimg.com/vi/6slRIyzdvpg/hqdefault.jpg",<br>
+                        "width": 480,<br>
+                        "height": 360
+                        }}}<br>
+                    </code>
+                    inside this JSON you can find the title of the song, the author name, pictures,and links<br>
+                    each one represent a different hip hop mixtape.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="jumbotron textZone">
+                <h2>Get All playlist Method</h2>
+                <p>
+                    the Method is GET<br>
+                    After the main Link you need to add the following <code>/getAllPlaylist</code><br>
+                    this function will return an array of the user's playlist as JSON that looks like that:<br>
+                    <code>
+                        [{
+                        "_id": "59469f85734d1d59b789650e",<br>
+                        "userId": 1,<br>
+                        "playlist": [
+                        {
+                        "_id": "5959cbd52f9dbb0004e81d54",<br>
+                        "songId": "6slRIyzdvpg",<br>
+                        "songTitle": "New Hip Hop Rap Music Mix 2017 Rap Hip Hop Mix 2016 Hip Hop R&B Songs 2017 Mix 52",<br>
+                        "songAuthor": "DJ NiR Maimon",<br>
+                        "yearOfCreation": "2017",<br>
+                        "image": "https://i.ytimg.com/vi/6slRIyzdvpg/mqdefault.jpg"
+                        },<br>
+                        {
+                        "_id": "5959cbd62f9dbb0004e81d55",
+                        "songId": "EIBFK6f6TMM",<br>
+                        "songTitle": "2016 HIP HOP Trap |CLUB BANGERS | Future, Designer, Ty Dollar $, Fetty Wap, Migos...",<br>
+                        "songAuthor": "DJ Marcus",<br>
+                        "yearOfCreation": "2017",<br>
+                        "image": "https://i.ytimg.com/vi/EIBFK6f6TMM/mqdefault.jpg"
+                        }}]
+                    </code>
+                    Under each user ID you will see the songID (in order to play it from youtube)<br>
+                    you will see the song title, author, year of creation and a medium size image.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="jumbotron textZone">
+                <h2>Delete song</h2>
+                <p>The Method is POST <br>
+                    in order to delete songs from a specific playlist<br>
+                    first you will need to add the following route <code>/deleteSong</code><br>
+                    as parameters you will need to send the song id as a parameters that calls "songId" <br>
+                    if it works you will get an approve json that looks like that <br>
+                    <code>
+                        {
+                        "ok": 1,<br>
+                        "nModified": 0,<br>
+                        "n": 1,<br>
+                        "opTime": {<br>
+                        "ts": "6445556063621087235",<br>
+                        "t": 2
+                        },<br>
+                        "electionId": "7fffffff0000000000000002"}
+                    </code><br>
+                    and the song will be delete from the DB.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="jumbotron textZone">
+                <h2>Add Song</h2>
+                <p>
+                    The Method is POST<br>
+                    in order to add song to the user's playlist you will need to add the route<br>
+                    <code>/addSong</code><br>
+                    to add song to the DB of the user you will need to send a few parameters<br>
+                    "songId" - will be the song id - string<br>
+                    "songTitle" - will be the song title - string<br>
+                    "songAuthor" - will be the song author - string<br>
+                    "yearOfCreation" - will be the year of creation - number<br>
+                    "image" - will be a link to the image of the song - string<br>
+
+                    after you will send the following parameters you will get the same OK status<br>
+                    you got in the delete method.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

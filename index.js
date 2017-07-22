@@ -14,10 +14,13 @@ app.use(
 res.header("Access-Control-Allow-Origin", "*");
 res.header("Access-Control-Allow-Headers",
 "Origin, X-Requested-With, Content-Type, Accept");
-res.set("Content-Type", "application/json");
+// res.set("Content-Type", "application/json");
 next();
 });
 
+app.get('/api',function(req,res){
+  res.sendFile(path.join(__dirname+'/api/index.html'));
+});
 
 app.get('/search',(req,res,next)=>{
   searchM.getAllPlaylist().then((result)=>{

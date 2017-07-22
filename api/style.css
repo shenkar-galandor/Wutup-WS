@@ -1,0 +1,55 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+body, main, section, footer, nav{
+    display: block;
+}
+
+body{
+    background: url("images/cover.jpg") no-repeat fixed;
+}
+
+@font-face {
+    font-family: 'Poplar std';
+    src: url('includes/POPLARSTD_0.woff');
+}
+
+@font-face {
+    font-family: 'Helvetica - medium Condensed';
+    src: url('includes/HELVETICA-CONDENSED-LIGHT.woff');
+}
+
+h1{
+    font-family: "Poplar std";
+    font-size: 70px;
+    text-align: center;
+    color: #8348ad;
+}
+
+h1 span{
+    color:#ffce00;
+}
+
+h2{
+    font-family: "Helvetica - medium Condensed";
+}
+
+.textZone{
+    background-color: rgba(0,0,0,.5);
+    width:800px;
+}
+
+.textZone h2{
+    color:#8348ad;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+}
+
+.textZone p{
+    color: #ffce00;
+    font-family: "Helvetica - medium Condensed";
+    text-align: center;
+}
